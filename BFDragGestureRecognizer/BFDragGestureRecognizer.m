@@ -55,9 +55,10 @@
 }
 
 - (UIScrollView *)enclosingScrollView {
-    UIView *view = self.view.superview;
+    UIView *view = self.view;
     while (view) {
-        if ([view isKindOfClass:[UIScrollView class]]) {
+        if ([view isKindOfClass:[UIScrollView class]] ||
+            [view isKindOfClass:[UICollectionView class]]) {
             return (UIScrollView *)view;
         }
         view = view.superview;
